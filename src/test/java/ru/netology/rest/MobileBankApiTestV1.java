@@ -1,12 +1,10 @@
-package rest;
+package ru.netology.rest;
 
-import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
 
-class MobileBankApiTestV5 {
+class MobileBankApiTestV1 {
     @Test
     void shouldReturnDemoAccounts() {
         // Given - When - Then
@@ -18,9 +16,6 @@ class MobileBankApiTestV5 {
                 .get("/demo/accounts")
                 // Проверки
                 .then()
-                .statusCode(200)
-                .contentType(ContentType.JSON)
-                .body("every{ it.balance >= 0 }", is(true))
-        ;
+                .statusCode(200);
     }
 }
